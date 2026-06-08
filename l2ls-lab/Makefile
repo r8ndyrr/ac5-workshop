@@ -7,9 +7,9 @@ help: ## Display help message
 .PHONY: l3ls
 l3ls: ## Deploy l3ls lab
 	cp ceos_lab.tar.gz l3ls-lab
-	docker run --rm -it --privileged --name l3ls -w /lab -v $(CURRENT_DIR)/l3ls-lab:/lab -v /var/lib/docker -e PASSWORD=labpass124 -p 5000:5000 ghcr.io/<username>/ac5-workshop/lab:uid-1009-rev0.2
+	docker run --rm -it --privileged --name l3ls -w /lab -v $(CURRENT_DIR)/l3ls-lab:/lab -v /var/lib/docker -e PASSWORD=labpass124 -p 5000:5000 ghcr.io/ankudinov/ac5-workshop/lab:uid-1009-rev0.2
 
 .PHONY: l2ls
 l2ls: ## Deploy l2ls lab
 	cp ceos_lab.tar.gz l2ls-lab
-	docker run --rm -it --privileged --name l2ls -w /lab -v $(CURRENT_DIR)/l2ls-lab:/lab -v /var/lib/docker -e PASSWORD=labpass125 -p 5000:5000 ghcr.io/<username>/ac5-workshop/lab:uid-1009-rev0.2
+	fixdocker run --rm -it --privileged --name l2ls -w /lab -v $(CURRENT_DIR)/l2ls-lab:/lab -v /var/lib/docker -e PASSWORD=labpass125 -p 5000:5000 ghcr.io/ankudinov/ac5-workshop/lab:uid-1009-rev0.2
