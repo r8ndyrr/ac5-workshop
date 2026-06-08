@@ -71,6 +71,6 @@ jobs:
         with:
           subFolder: containers/lab
           imageName: ghcr.io/${{ steps.gh_repo.outputs.name_lowcase }}/lab
-          imageTag: uid-${{ inputs.user_id }}-rev0.1
+          imageTag: uid-${{ inputs.user_id }}-rev0.2
           platform: linux/arm64/v8,linux/amd64
           push: always
