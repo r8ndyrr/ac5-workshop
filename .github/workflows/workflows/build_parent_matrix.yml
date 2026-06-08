@@ -1,0 +1,31 @@
+---
+name: build container images
+
+on:
+  push:
+    paths:
+      - .github/workflows/build_child.yml
+      - .github/workflows/build_parent_matrix.yml
+      - containers/lab/**
+
+permissions:
+  packages: write
+
+jobs:
+  build-lab-containers:
+    uses: ./.github/workflows/build_child.yml
+    strategy:
+      matrix:
+        from_image: ["ghcr.io/aristanetworks/avd/universal"]
+        from_variant: ["python3.12-avd-v6.1.0"]
+        user_id: ["1000", "1009"]
+        include:
+          - user_id: "1000"
+            group_id: "1000"
+          - user_id: "1009"
+            group_id: "1009"
+    with:
+      from_image: ${{ matrix.from_image }}
+      from_variant: ${{ matrix.from_variant }}
+      user_id: ${{ matrix.user_id }}
+      group_id: ${{ matrix.group_id }}
