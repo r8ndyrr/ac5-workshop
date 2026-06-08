@@ -1,0 +1,6 @@
+// .devcontainer/devcontainer.json
+{
+  "image": "ghcr.io/aristanetworks/avd/universal:python3.12-avd-v6.1.0",
+  "remoteUser": "avd",
+  "onCreateCommand": "${containerWorkspaceFolder}/init.sh"
+}
